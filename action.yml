@@ -10,15 +10,15 @@ outputs:
 runs:
   using: composite
   steps:
-    - name: Download stubcc.
+    - shell: bash
       run: wget https://github.com/mario-campos/stubcc/releases/download/v0.1.0/stubcc-linux64
-    - name: Install stubcc as clang.
-      id: install-clang
+    - id: install-clang
+      shell: bash
       run: |
         install -m 755 stubcc-linux64 "$RUNNER_TEMP/clang"
         echo "::set-output name=path::$RUNNER_TEMP/clang"
-    - name: Install stubcc as gcc.
-      id: install-gcc
+    - id: install-gcc
+      shell: bash
       run: |
         install -m 755 stubcc-linux64 "$RUNNER_TEMP/gcc"
         echo "::set-output name=path::$RUNNER_TEMP/gcc"
