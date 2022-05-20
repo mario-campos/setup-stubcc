@@ -2,10 +2,10 @@ name: setup-stubcc
 description: setup-stubcc downloads and installs mario-campos/stubcc as `gcc` and `clang`.
 outputs:
   clang:
-    description: "clang" installation path
+    description: clang installation path
     value: ${{ steps.install-clang.outputs.path }}
   gcc:
-    description: "gcc" installation path
+    description: gcc installation path
     value: ${{ steps.install-gcc.outputs.path }}
 runs:
   using: composite
