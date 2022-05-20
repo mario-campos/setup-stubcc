@@ -1,5 +1,5 @@
 name: setup-stubcc
-description: setup-stubcc downloads and installs mario-campos/stubcc as `gcc` and `clang`.
+description: setup-stubcc downloads and installs mario-campos/stubcc as gcc and clang.
 outputs:
   clang:
     description: clang installation path
@@ -11,7 +11,7 @@ runs:
   using: composite
   steps:
     - shell: bash
-      run: wget https://github.com/mario-campos/stubcc/releases/download/v0.1.0/stubcc-linux64
+      run: wget --quiet https://github.com/mario-campos/stubcc/releases/download/v0.1.0/stubcc-linux64
     - id: install-clang
       shell: bash
       run: |
