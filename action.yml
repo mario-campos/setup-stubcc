@@ -1,0 +1,24 @@
+name: setup-stubcc
+description: setup-stubcc downloads and installs mario-campos/stubcc as `gcc` and `clang`.
+outputs:
+  gcc:
+    description: "gcc" installation path
+    value: ${{ steps.install-clang.outputs.path }}
+  clang:
+    description: "clang" installation path
+    value: ${{ steps.install-gcc.outputs.path }}
+runs:
+  using: composite
+  steps:
+    - name: Download stubcc.
+      run: wget https://github.com/mario-campos/stubcc/releases/download/v0.1.0/stubcc-linux64
+    - name: Install stubcc as clang.
+      id: install-clang
+      run: |
+        install -m 755 stubcc-linux64 "$RUNNER_TEMP/clang"
+        echo "::set-output name=path::$RUNNER_TEMP/clang"
+    - name: Install stubcc as gcc.
+      id: install-gcc
+      run: |
+        install -m 755 stubcc-linux64 "$RUNNER_TEMP/gcc"
+        echo "::set-output name=path::$RUNNER_TEMP/gcc"
