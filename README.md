@@ -7,7 +7,7 @@ jobs:
   runs-on: ubuntu-latest # required
   steps:
   - name: Setup stubcc
-    uses: mario-campos/setup-stubcc@main
+    uses: mario-campos/setup-stubcc@v1
     id: setup-stubcc
   - name: Stub C Compilation
     run: $CC foo.c
